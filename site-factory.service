@@ -1,0 +1,17 @@
+[Unit]
+Description=site-factory-backend service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/bin/dotnet /var/www/site-factory-backend.dll
+WorkingDirectory=/var/www
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
